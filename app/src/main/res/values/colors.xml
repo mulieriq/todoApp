@@ -10,4 +10,11 @@
     <color name="colorPrimaryDark">#6A1B9A</color>
     <color name="colorAccent">#9013FE</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="lightGray">#E6E6E6</color>
+    <color name="darkGray">#4B4B4B</color>
+    <color name="red">#FF4646</color>
+    <color name="yellow">#FFC114</color>
+    <color name="green">#00C980</color>
 </resources>
