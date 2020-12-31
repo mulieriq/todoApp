@@ -36,7 +36,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:src="@drawable/ic_no_data"
-
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerview"
         app:layout_constraintEnd_toEndOf="@+id/recyclerview"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +50,7 @@
         android:layout_marginTop="12dp"
         android:textSize="16sp"
         android:alpha="0.5"
+        android:visibility="invisible"
         android:text="@string/no_data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
