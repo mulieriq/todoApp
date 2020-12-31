@@ -1,10 +1,11 @@
-package com.skylabstechke.todo
+package com.skylabstechke.todo.fragments.update
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.skylabstechke.todo.R
 
 
 class UpdateFragment : Fragment() {
