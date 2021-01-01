@@ -7,8 +7,8 @@
     <string name="description">Description</string>
     
     <string-array name="priorities">
-        <string name="description">Description</string>
-        <string name="description">Description</string>
-        <string name="description">Description</string>
+        <item>High Priority</item>
+        <item>Medium Priority</item>
+        <item>Low Priority</item>
     </string-array>
 </resources>
