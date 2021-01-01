@@ -1,9 +1,7 @@
 package com.skylabstechke.todo.fragments.update
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import com.skylabstechke.todo.R
 
@@ -16,7 +14,15 @@ class UpdateFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        setHasOptionsMenu(true)
+
+
         return inflater.inflate(R.layout.fragment_update, container, false)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.update_fragment_menu, menu)
     }
 
 
