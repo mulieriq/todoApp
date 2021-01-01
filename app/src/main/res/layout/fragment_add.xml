@@ -44,7 +44,6 @@
         android:layout_height="0dp"
         android:ems="10"
         android:hint="@string/description"
-
         android:background="@android:color/transparent"
         android:layout_marginTop="8dp"
         android:gravity="start|top"
