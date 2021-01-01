@@ -5,4 +5,10 @@
     <string name="no_data">No Data</string>
     <string name="title">Title</string>
     <string name="description">Description</string>
+    
+    <string-array name="priorities">
+        <string name="description">Description</string>
+        <string name="description">Description</string>
+        <string name="description">Description</string>
+    </string-array>
 </resources>
