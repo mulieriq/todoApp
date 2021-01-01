@@ -8,13 +8,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.skylabstechke.todo.R
 
 
-
 class ListFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View ?{
+    ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_list, container, false)
 
@@ -33,7 +32,7 @@ class ListFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.list_fragment_menu,menu)
+        inflater.inflate(R.menu.list_fragment_menu, menu)
     }
 
 }
