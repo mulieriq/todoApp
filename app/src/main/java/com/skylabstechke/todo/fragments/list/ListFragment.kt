@@ -16,23 +16,18 @@ class ListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_list, container, false)
-
         view.findViewById<FloatingActionButton>(R.id.floatingActionButton).setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
-
         view.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_updateFragment)
         }
         //link menu
         setHasOptionsMenu(true)
         return view
-
     }
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.list_fragment_menu, menu)
     }
-
 }

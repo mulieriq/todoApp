@@ -8,15 +8,12 @@ import com.skylabstechke.todo.R
 
 class UpdateFragment : Fragment() {
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         setHasOptionsMenu(true)
-
-
         return inflater.inflate(R.layout.fragment_update, container, false)
     }
 
@@ -24,6 +21,4 @@ class UpdateFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.update_fragment_menu, menu)
     }
-
-
 }

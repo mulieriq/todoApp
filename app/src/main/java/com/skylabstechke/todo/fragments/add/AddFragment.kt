@@ -20,6 +20,4 @@ class AddFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.add_fragment_menu, menu)
     }
-
-
 }
