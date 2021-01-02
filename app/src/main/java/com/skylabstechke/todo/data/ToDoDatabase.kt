@@ -8,6 +8,5 @@ abstract class ToDoDatabase : RoomDatabase() {
     companion object{
         @Volatile
         private var INSTANCE :ToDoDatabase ? = null
-
     }
 }
