@@ -11,11 +11,13 @@ import com.skylabstechke.todo.R
 import com.skylabstechke.todo.data.model.Priority
 import com.skylabstechke.todo.data.model.ToDoData
 import com.skylabstechke.todo.data.viewmodel.ToDoViewModel
+import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 
 class AddFragment : Fragment() {
 
     private val mToDoViewModel: ToDoViewModel by viewModels()
+    private val mShareViewModel: ShareViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,12 +45,12 @@ class AddFragment : Fragment() {
         val mPriority = priorities_spinner.selectedItem.toString()
         val mDescription = descriptions_et.text.toString()
 
-        val validation = verifyDataFromUser(mTitle, mDescription)
+        val validation = mShareViewModel.verifyDataFromUser(mTitle, mDescription)
         if (validation) {
             val newData = ToDoData(
                 0,
                 mTitle,
-                parsePriority(mPriority),
+              mShareViewModel.parsePriority(mPriority),
                 mDescription
             )
             mToDoViewModel.insertData(newData)
@@ -59,29 +61,5 @@ class AddFragment : Fragment() {
             Toast.makeText(requireContext(), "Please fill out all fields!", Toast.LENGTH_LONG)
                 .show()
         }
-
-    }
-
-    private fun verifyDataFromUser(title: String, description: String): Boolean {
-        return if (TextUtils.isEmpty(title) || TextUtils.isEmpty(description)) {
-            false
-        } else !(title.isEmpty() || description.isEmpty())
-    }
-
-    private fun parsePriority(priority: String): Priority {
-
-        return when (priority) {
-            "High Priority" -> {
-                Priority.HIGH
-            }
-            "Medium Priority" -> {
-                Priority.MEDIUM
-            }
-            "Low Priority" -> {
-                Priority.LOW
-            }
-            else -> Priority.LOW
-        }
-
     }
 }
