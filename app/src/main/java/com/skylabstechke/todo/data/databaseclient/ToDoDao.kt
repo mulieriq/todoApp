@@ -1,4 +1,4 @@
-package com.skylabstechke.todo.data
+package com.skylabstechke.todo.data.databaseclient
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

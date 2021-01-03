@@ -1,4 +1,4 @@
-package com.skylabstechke.todo.data
+package com.skylabstechke.todo.data.utilis
 
 import androidx.room.TypeConverter
 import com.skylabstechke.todo.data.model.Priority
