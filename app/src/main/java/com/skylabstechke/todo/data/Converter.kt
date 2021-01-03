@@ -9,5 +9,7 @@ class Converter {
         return priority.name
     }
 
-
+    fun toPriority(priority: String):Priority{
+        return Priority.valueOf(priority)
+    }
 }
