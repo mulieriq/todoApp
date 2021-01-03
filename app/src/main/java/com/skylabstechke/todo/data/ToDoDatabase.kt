@@ -1,4 +1,5 @@
 package com.skylabstechke.todo.data
+import android.content.Context
 import androidx.room.Database
 import androidx.room.RoomDatabase
 
@@ -8,5 +9,19 @@ abstract class ToDoDatabase : RoomDatabase() {
     companion object{
         @Volatile
         private var INSTANCE :ToDoDatabase ? = null
+
+        fun getDatabase(context:Context):ToDoDatabase{
+
+            val tempInstance = INSTANCE
+            if(tempInstance !=null){
+                return tempInstance
+            }
+git
+        }
     }
+
+
+
+
+
 }
