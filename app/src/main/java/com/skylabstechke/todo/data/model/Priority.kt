@@ -1,4 +1,4 @@
-package com.skylabstechke.todo.data
+package com.skylabstechke.todo.data.model
 
 enum class Priority {
     HIGH,

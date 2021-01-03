@@ -1,6 +1,7 @@
 package com.skylabstechke.todo.data
 
 import androidx.room.TypeConverter
+import com.skylabstechke.todo.data.model.Priority
 
 class Converter {
 
@@ -10,7 +11,7 @@ class Converter {
     }
 
     @TypeConverter
-    fun toPriority(priority: String):Priority{
+    fun toPriority(priority: String): Priority {
         return Priority.valueOf(priority)
     }
 }
