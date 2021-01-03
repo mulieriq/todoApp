@@ -14,7 +14,6 @@ abstract class ToDoDatabase : RoomDatabase() {
         private var INSTANCE: ToDoDatabase? = null
 
         fun getDatabase(context: Context): ToDoDatabase {
-
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance
@@ -30,6 +29,4 @@ abstract class ToDoDatabase : RoomDatabase() {
             }
         }
     }
-
-
 }
