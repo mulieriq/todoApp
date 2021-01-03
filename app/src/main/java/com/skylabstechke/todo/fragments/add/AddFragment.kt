@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_add.*
 
 class AddFragment : Fragment() {
 
-    private val mToDoViewModel :ToDoViewModel by viewModels()
+    private val mToDoViewModel: ToDoViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -53,8 +53,11 @@ class AddFragment : Fragment() {
             )
             mToDoViewModel.insertData(newData)
 
-            Toast.makeText(requireContext(),"Successfully added!",Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "Successfully added!", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_addFragment_to_listFragment)
+        } else {
+            Toast.makeText(requireContext(), "Please fill out all fields!", Toast.LENGTH_LONG)
+                .show()
         }
 
     }
