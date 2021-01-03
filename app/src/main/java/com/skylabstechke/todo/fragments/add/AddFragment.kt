@@ -3,6 +3,7 @@ package com.skylabstechke.todo.fragments.add
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.skylabstechke.todo.R
 
 class AddFragment : Fragment() {
@@ -22,8 +23,14 @@ class AddFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_add) {
+            insertDataToDb()
+        }
         return super.onOptionsItemSelected(item)
+    }
 
-        if(item.itemId == R.id.add)
+    private fun insertDataToDb() {
+
+        val mTitle = view.findViewById(R.id.floatingActionButton)
     }
 }
