@@ -1,11 +1,14 @@
-package com.skylabstechke.todo.data
+package com.skylabstechke.todo.data.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.viewModelScope
 import com.skylabstechke.todo.data.databaseclient.ToDoDatabase
 import com.skylabstechke.todo.data.model.ToDoData
 import com.skylabstechke.todo.data.repository.ToDoRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ToDoViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -16,5 +19,12 @@ class ToDoViewModel(application: Application) : AndroidViewModel(application) {
     init {
         repository = ToDoRepository(toDoDao)
         getAllData = repository.getAllData
+    }
+
+
+    fun insertData(toDoData: ToDoData) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.insertData(toDoData)
+        }
     }
 }
