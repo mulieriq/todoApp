@@ -1,6 +1,7 @@
 package com.skylabstechke.todo.fragments.add
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.*
 import androidx.fragment.app.Fragment
 import com.skylabstechke.todo.R
@@ -33,5 +34,11 @@ class AddFragment : Fragment() {
         val mTitle = title_et.text.toString()
         val mPriority = priorities_spinner.selectedItem.toString()
         val mDescription = descriptions_et.text.toString()
+    }
+
+    private fun verifyDataFromUser(title: String, description: String): Boolean {
+        return if (TextUtils.isEmpty(title) || TextUtils.isEmpty(description)) {
+            false
+        } else !(title.isEmpty() || description.isEmpty())
     }
 }
