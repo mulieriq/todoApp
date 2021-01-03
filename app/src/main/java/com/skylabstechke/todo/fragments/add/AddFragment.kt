@@ -20,4 +20,10 @@ class AddFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.add_fragment_menu, menu)
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return super.onOptionsItemSelected(item)
+
+        if(item.itemId == R.id.add)
+    }
 }
