@@ -26,20 +26,15 @@ class ListFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_list, container, false)
         val recyclerView = view.recyclerview
-
         recyclerView.adapter = adapter
-
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
 
         mToDoViewModel.getAllData.observe(viewLifecycleOwner, Observer { data ->
             adapter.setData(data)
         })
-
         view.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
-
-        //link menu
         setHasOptionsMenu(true)
         return view
     }
