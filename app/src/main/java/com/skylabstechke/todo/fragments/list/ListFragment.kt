@@ -36,7 +36,7 @@ class ListFragment : Fragment() {
             adapter.setData(data)
 
         })
-        mSharedViewModel.emptyDatabase.observe(viewLifecycleOwner, Observer {data->
+        mSharedViewModel.emptyDatabase.observe(viewLifecycleOwner, Observer { data ->
             showEmptyDatabaseViews(data)
         })
         view.floatingActionButton.setOnClickListener {
@@ -46,10 +46,16 @@ class ListFragment : Fragment() {
         return view
     }
 
-    private fun showEmptyDatabaseViews(data:Boolean) {
+    private fun showEmptyDatabaseViews(data: Boolean) {
 
+        if (data) {
+            view?.no_data_imageView?.visibility = View.VISIBLE
+            view?.no_data_textView?.visibility = View.VISIBLE
 
-
+        } else {
+            view?.no_data_imageView?.visibility = View.INVISIBLE
+            view?.no_data_textView?.visibility = View.INVISIBLE
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
