@@ -48,7 +48,7 @@ class UpdateFragment : Fragment() {
     private fun updateItem() {
         val title = current_title_et.text.toString()
         val description = current_descriptions_et.text.toString()
-        val priority = priorities_spinner.selectedItem.toString()
+        val priority = current_priorities_spinner.selectedItem.toString()
         val validation = mShareViewModel.verifyDataFromUser(title, description)
         if (validation) {
             val updateData = ToDoData(
