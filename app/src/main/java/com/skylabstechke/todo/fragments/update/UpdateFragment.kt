@@ -5,9 +5,11 @@ import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.skylabstechke.todo.R
 import com.skylabstechke.todo.data.model.ToDoData
+import com.skylabstechke.todo.data.viewmodel.ToDoViewModel
 import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
@@ -19,6 +21,7 @@ class UpdateFragment : Fragment() {
 
     private val args by navArgs<UpdateFragmentArgs>()
     private val mShareViewModel: ShareViewModel by viewModels()
+    private val mToDoViewModel: ToDoViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -40,8 +43,6 @@ class UpdateFragment : Fragment() {
             updateItem()
         }
         return super.onOptionsItemSelected(item)
-
-
     }
 
     private fun updateItem() {
@@ -50,13 +51,15 @@ class UpdateFragment : Fragment() {
         val priority = priorities_spinner.selectedItem.toString()
         val validation = mShareViewModel.verifyDataFromUser(title, description)
         if (validation) {
-            val updateDate = ToDoData(
+            val updateData = ToDoData(
                 args.current.id,
                 title,
                 mShareViewModel.parsePriority(priority),
                 description
-
             )
+            mToDoViewModel.updateData(updateData)
+            Toast.makeText(requireContext(), "Successfully Updated!", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
         } else {
             Toast.makeText(requireContext(), "Please fill out all fields", Toast.LENGTH_LONG).show()
         }
