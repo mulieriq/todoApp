@@ -37,7 +37,6 @@ class UpdateFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
         if (item.itemId == R.id.update_save) {
             updateItem()
         } else if (item.itemId == R.id.update_delete) {
