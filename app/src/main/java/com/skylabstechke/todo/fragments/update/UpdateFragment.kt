@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.skylabstechke.todo.R
-import com.skylabstechke.todo.data.model.Priority
 import com.skylabstechke.todo.data.model.ToDoData
 import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
@@ -19,7 +18,7 @@ import kotlinx.android.synthetic.main.fragment_update.view.*
 class UpdateFragment : Fragment() {
 
     private val args by navArgs<UpdateFragmentArgs>()
-    private  val mShareViewModel: ShareViewModel by viewModels()
+    private val mShareViewModel: ShareViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -37,7 +36,7 @@ class UpdateFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        if(item.itemId == R.id.update_save){
+        if (item.itemId == R.id.update_save) {
             updateItem()
         }
         return super.onOptionsItemSelected(item)
@@ -49,13 +48,17 @@ class UpdateFragment : Fragment() {
         val title = current_title_et.text.toString()
         val description = current_descriptions_et.text.toString()
         val priority = priorities_spinner.selectedItem.toString()
-        val validation = mShareViewModel.verifyDataFromUser(title,description)
-        if(validation){
-            val updateDate =  ToDoData(
+        val validation = mShareViewModel.verifyDataFromUser(title, description)
+        if (validation) {
+            val updateDate = ToDoData(
+                args.current.id,
+                title,
+                mShareViewModel.parsePriority(priority),
+                description
 
             )
-        }else{
-            Toast.makeText(this,"Please fill out all fields",Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(requireContext(), "Please fill out all fields", Toast.LENGTH_LONG).show()
         }
     }
 
