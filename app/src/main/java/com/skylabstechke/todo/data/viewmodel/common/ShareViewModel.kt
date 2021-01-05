@@ -7,10 +7,13 @@ import android.widget.AdapterView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
 import com.skylabstechke.todo.R
 import com.skylabstechke.todo.data.model.Priority
 
 class ShareViewModel(application: Application) : AndroidViewModel(application) {
+
+    val emptyDatabase : MutableLiveData<Boolean> = MutableLiveData(true)
 
 
     val listener: AdapterView.OnItemSelectedListener = object : AdapterView.OnItemSelectedListener {
