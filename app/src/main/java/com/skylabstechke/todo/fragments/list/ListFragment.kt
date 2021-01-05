@@ -11,12 +11,14 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.skylabstechke.todo.R
 import com.skylabstechke.todo.data.viewmodel.ToDoViewModel
+import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 
 class ListFragment : Fragment() {
 
     private val mToDoViewModel: ToDoViewModel by viewModels()
+    private val mSharedViewModel: ShareViewModel by viewModels()
     private val adapter: ListAdapter by lazy { ListAdapter() }
 
     override fun onCreateView(
@@ -30,13 +32,24 @@ class ListFragment : Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
 
         mToDoViewModel.getAllData.observe(viewLifecycleOwner, Observer { data ->
+            mSharedViewModel.checkIfDatabaseEmpty(data)
             adapter.setData(data)
+
+        })
+        mSharedViewModel.emptyDatabase.observe(viewLifecycleOwner, Observer {data->
+            showEmptyDatabaseViews(data)
         })
         view.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
         setHasOptionsMenu(true)
         return view
+    }
+
+    private fun showEmptyDatabaseViews(data:Boolean) {
+
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
