@@ -1,6 +1,8 @@
 package com.skylabstechke.todo.data.viewmodel
 
 import android.app.Application
+import android.view.View
+import android.widget.AdapterView
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -13,8 +15,23 @@ import kotlinx.coroutines.launch
 class ToDoViewModel(application: Application) : AndroidViewModel(application) {
 
 
-    val
+    val listener: AdapterView.OnItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        override fun onItemSelected(p0: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            when
+                    (position) {
+                0 -> {
+                }
+                1 -> {
+                }
+                2 -> {
+                }
+            }
+        }
 
+        override fun onNothingSelected(p0: AdapterView<*>?) {
+            TODO("Not yet implemented")
+        }
+    }
 
 
     private val toDoDao = ToDoDatabase.getDatabase(application).toDoDao()
