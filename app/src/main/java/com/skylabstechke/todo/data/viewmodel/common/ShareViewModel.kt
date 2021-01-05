@@ -10,10 +10,15 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.skylabstechke.todo.R
 import com.skylabstechke.todo.data.model.Priority
+import com.skylabstechke.todo.data.model.ToDoData
 
 class ShareViewModel(application: Application) : AndroidViewModel(application) {
 
-    val emptyDatabase : MutableLiveData<Boolean> = MutableLiveData(true)
+    val emptyDatabase: MutableLiveData<Boolean> = MutableLiveData(true)
+
+    fun checkIfDatabaseEmpty(toDoData: List<ToDoData>) {
+        emptyDatabase.value = toDoData.isEmpty()
+    }
 
 
     val listener: AdapterView.OnItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -77,7 +82,7 @@ class ShareViewModel(application: Application) : AndroidViewModel(application) {
     }
 
 
-     fun parsePriorityToInt(priority: Priority): Int {
+    fun parsePriorityToInt(priority: Priority): Int {
         return when (priority) {
             Priority.HIGH -> 0
             Priority.MEDIUM -> 1
