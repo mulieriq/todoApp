@@ -13,7 +13,6 @@ import com.skylabstechke.todo.data.model.Priority
 class ShareViewModel(application: Application) : AndroidViewModel(application) {
 
 
-
     val listener: AdapterView.OnItemSelectedListener = object : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             when
