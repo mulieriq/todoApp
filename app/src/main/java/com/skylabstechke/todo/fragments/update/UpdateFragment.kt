@@ -3,9 +3,11 @@ package com.skylabstechke.todo.fragments.update
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.skylabstechke.todo.R
 import com.skylabstechke.todo.data.model.Priority
+import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
 import kotlinx.android.synthetic.main.fragment_add.view.*
 import kotlinx.android.synthetic.main.fragment_update.view.*
 
@@ -13,6 +15,7 @@ import kotlinx.android.synthetic.main.fragment_update.view.*
 class UpdateFragment : Fragment() {
 
     private val args by navArgs<UpdateFragmentArgs>()
+    private  val mShareViewModel: ShareViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -24,6 +27,7 @@ class UpdateFragment : Fragment() {
         view.current_title_et.setText(args.current.title)
         view.current_descriptions_et.setText(args.current.description)
         view.priorities_spinner.setSelection(parsePriotity(args.current.priority))
+        view.priorities_spinner.onItemSelectedListener = mShareViewModel.listener
         return view
     }
 
