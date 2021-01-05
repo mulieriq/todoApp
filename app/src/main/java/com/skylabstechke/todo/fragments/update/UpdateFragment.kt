@@ -3,6 +3,7 @@ package com.skylabstechke.todo.fragments.update
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -47,7 +48,14 @@ class UpdateFragment : Fragment() {
     }
 
     private fun confirmItemRemoval() {
-        TODO("Not yet implemented")
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("Yes"){_,_->
+            mToDoViewModel.delete(args.current)
+            Toast.makeText(requireContext(), "Item Deleted", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_updateFragment_to_listFragment)
+        }
+
+
     }
 
     private fun updateItem() {
