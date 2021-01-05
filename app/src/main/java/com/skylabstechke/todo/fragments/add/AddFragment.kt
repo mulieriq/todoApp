@@ -1,14 +1,12 @@
 package com.skylabstechke.todo.fragments.add
 
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.skylabstechke.todo.R
-import com.skylabstechke.todo.data.model.Priority
 import com.skylabstechke.todo.data.model.ToDoData
 import com.skylabstechke.todo.data.viewmodel.ToDoViewModel
 import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
@@ -26,8 +24,8 @@ class AddFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_add, container, false)
         setHasOptionsMenu(true)
-        priorities_spinner.onItemClickListener = mShareViewModel.lis
-        return
+        priorities_spinner.onItemSelectedListener = mShareViewModel.listener
+        return view
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -52,7 +50,7 @@ class AddFragment : Fragment() {
             val newData = ToDoData(
                 0,
                 mTitle,
-              mShareViewModel.parsePriority(mPriority),
+                mShareViewModel.parsePriority(mPriority),
                 mDescription
             )
             mToDoViewModel.insertData(newData)
