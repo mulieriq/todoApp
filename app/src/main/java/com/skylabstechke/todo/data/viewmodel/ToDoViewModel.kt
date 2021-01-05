@@ -17,44 +17,6 @@ import kotlinx.coroutines.launch
 
 class ToDoViewModel(application: Application) : AndroidViewModel(application) {
 
-
-    val listener: AdapterView.OnItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-            when
-                    (position) {
-                0 -> {
-                    (parent?.getChildAt(0) as TextView).setTextColor(
-                        ContextCompat.getColor(
-                            application,
-                            R.color.red
-                        )
-                    )
-                }
-                1 -> {
-                    (parent?.getChildAt(1) as TextView).setTextColor(
-                        ContextCompat.getColor(
-                            application,
-                            R.color.yellow
-                        )
-                    )
-                }
-                2 -> {
-                    (parent?.getChildAt(2) as TextView).setTextColor(
-                        ContextCompat.getColor(
-                            application,
-                            R.color.green
-                        )
-                    )
-                }
-            }
-        }
-
-        override fun onNothingSelected(p0: AdapterView<*>?) {
-            TODO("Not yet implemented")
-        }
-    }
-
-
     private val toDoDao = ToDoDatabase.getDatabase(application).toDoDao()
     private val repository: ToDoRepository
     private lateinit var getAllData: LiveData<List<ToDoData>>

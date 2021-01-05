@@ -24,8 +24,10 @@ class AddFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        val view = inflater.inflate(R.layout.fragment_add, container, false)
         setHasOptionsMenu(true)
-        return inflater.inflate(R.layout.fragment_add, container, false)
+        priorities_spinner.onItemClickListener = mShareViewModel.lis
+        return
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
