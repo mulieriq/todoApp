@@ -3,6 +3,7 @@ package com.skylabstechke.todo.fragments.list
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -57,8 +58,14 @@ class ListFragment : Fragment() {
     }
 
     private fun confirmDataRemoval() {
-
         val builder = AlertDialog.Builder(requireContext())
-
+        builder.setTitle("Delete all Items")
+        builder.setMessage("Once you delete all items they can't be retrieved")
+        builder.setNegativeButton("No") { _, _ -> }
+        builder.setPositiveButton("Yes") { _, _ ->
+            mToDoViewModel.deleteAll()
+            Toast.makeText(requireContext(), "Items Deleted Successfully", Toast.LENGTH_LONG).show()
+        }
+        builder.create().show()
     }
 }
