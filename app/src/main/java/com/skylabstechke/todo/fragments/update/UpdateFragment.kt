@@ -26,17 +26,19 @@ class UpdateFragment : Fragment() {
 
         view.current_title_et.setText(args.current.title)
         view.current_descriptions_et.setText(args.current.description)
-        view.priorities_spinner.setSelection(parsePriotity(args.current.priority))
+        view.priorities_spinner.setSelection(mShareViewModel.parsePriorityToInt(args.current.priority))
         view.priorities_spinner.onItemSelectedListener = mShareViewModel.listener
         return view
     }
 
-    private fun parsePriotity(priority: Priority): Int {
-        return when (priority) {
-            Priority.HIGH -> 0
-            Priority.MEDIUM -> 1
-            Priority.LOW -> 2
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if(item.itemId == R.id.update_save){
+            update
         }
+        return super.onOptionsItemSelected(item)
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
