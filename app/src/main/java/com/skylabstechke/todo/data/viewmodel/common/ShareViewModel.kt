@@ -20,7 +20,6 @@ class ShareViewModel(application: Application) : AndroidViewModel(application) {
         emptyDatabase.value = toDoData.isEmpty()
     }
 
-
     val listener: AdapterView.OnItemSelectedListener = object : AdapterView.OnItemSelectedListener {
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             when
