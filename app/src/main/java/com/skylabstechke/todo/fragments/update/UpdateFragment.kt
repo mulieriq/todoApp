@@ -40,22 +40,23 @@ class UpdateFragment : Fragment() {
 
         if (item.itemId == R.id.update_save) {
             updateItem()
-        }else if(item.itemId == R.id.update_delete){
-
-          confirmItemRemoval()
+        } else if (item.itemId == R.id.update_delete) {
+            confirmItemRemoval()
         }
         return super.onOptionsItemSelected(item)
     }
 
     private fun confirmItemRemoval() {
         val builder = AlertDialog.Builder(requireContext())
-        builder.setPositiveButton("Yes"){_,_->
+        builder.setPositiveButton("Yes") { _, _ ->
             mToDoViewModel.delete(args.current)
             Toast.makeText(requireContext(), "Item Deleted", Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
         }
-
-
+        builder.setNegativeButton("No") { _, _ -> }
+        builder.setTitle("Delete ${args.current.title}")
+        builder.setMessage("Are you sure you want to delete ${args.current.title}")
+        builder.create().show()
     }
 
     private fun updateItem() {
