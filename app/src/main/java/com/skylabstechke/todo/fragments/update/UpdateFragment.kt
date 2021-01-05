@@ -39,8 +39,15 @@ class UpdateFragment : Fragment() {
 
         if (item.itemId == R.id.update_save) {
             updateItem()
+        }else if(item.itemId == R.id.update_delete){
+
+          confirmItemRemoval()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun confirmItemRemoval() {
+        TODO("Not yet implemented")
     }
 
     private fun updateItem() {
