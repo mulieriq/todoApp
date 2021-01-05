@@ -15,4 +15,7 @@ interface ToDoDao {
     suspend fun updateData(toDoData: ToDoData)
     @Delete
     suspend fun deleteData(toDoData: ToDoData)
+
+    @Query("DELETE  FROM todo_table")
+    suspend fun deleteAll()
 }
