@@ -36,8 +36,10 @@
             android:focusable="true"
             android:tint="@color/white"
             android:src="@drawable/ic_add"
+            android:navigateToAddFragment="@{true}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="ContentDescription" />
 
         <ImageView
             android:id="@+id/no_data_imageView"
