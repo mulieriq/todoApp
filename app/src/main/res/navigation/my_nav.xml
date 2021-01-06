@@ -27,10 +27,10 @@
         <action
             android:id="@+id/action_listFragment_to_detailsFragment"
             app:destination="@id/detailsFragment"
-            app:enterAnim="@anim/from_left"
-            app:exitAnim="@anim/to_right"
-            app:popEnterAnim="@anim/from_right"
-            app:popExitAnim="@anim/from_left" />
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top"
+            app:popEnterAnim="@anim/from_top"
+            app:popExitAnim="@anim/to_bottom" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -58,7 +58,9 @@
             app:argType="com.skylabstechke.todo.data.model.ToDoData" />
         <action
             android:id="@+id/action_updateFragment_to_detailsFragment2"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/to_bottom" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -68,10 +70,14 @@
         <action
             android:id="@+id/action_detailsFragment_to_listFragment"
             app:destination="@id/listFragment"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/to_bottom" />
         <action
             android:id="@+id/action_detailsFragment_to_updateFragment2"
-            app:destination="@id/updateFragment" />
+            app:destination="@id/updateFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top"
+            app:popEnterAnim="@anim/from_top"
+            app:popExitAnim="@anim/to_bottom" />
     </fragment>
 </navigation>
