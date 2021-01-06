@@ -39,9 +39,6 @@ class ListFragment : Fragment() {
         mSharedViewModel.emptyDatabase.observe(viewLifecycleOwner, Observer { data ->
             showEmptyDatabaseViews(data)
         })
-        view.floatingActionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_addFragment)
-        }
         setHasOptionsMenu(true)
         return view
     }
