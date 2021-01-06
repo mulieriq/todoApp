@@ -21,8 +21,8 @@ class ListFragment : Fragment() {
     private val mToDoViewModel: ToDoViewModel by viewModels()
     private val mSharedViewModel: ShareViewModel by viewModels()
     private val adapter: ListAdapter by lazy { ListAdapter() }
-    private lateinit var _binding:FragmentListBinding
-    private val binding get() = _binding
+    private  var _binding:FragmentListBinding?=null
+    private val binding get() = _binding!!
 
 
     override fun onCreateView(
@@ -47,6 +47,11 @@ class ListFragment : Fragment() {
         })
         setHasOptionsMenu(true)
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun showEmptyDatabaseViews(data: Boolean) {
