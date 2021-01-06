@@ -49,5 +49,17 @@
         <argument
             android:name="current"
             app:argType="com.skylabstechke.todo.data.model.ToDoData" />
+        <action
+            android:id="@+id/action_updateFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.skylabstechke.todo.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" >
+        <action
+            android:id="@+id/action_detailsFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
     </fragment>
 </navigation>
