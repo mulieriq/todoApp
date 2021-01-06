@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.skylabstechke.todo.R
 import com.skylabstechke.todo.data.viewmodel.ToDoViewModel
 import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
+import com.skylabstechke.todo.databinding.FragmentListBinding
 import kotlinx.android.synthetic.main.fragment_list.view.*
 
 
@@ -20,14 +21,19 @@ class ListFragment : Fragment() {
     private val mToDoViewModel: ToDoViewModel by viewModels()
     private val mSharedViewModel: ShareViewModel by viewModels()
     private val adapter: ListAdapter by lazy { ListAdapter() }
+    private lateinit var _binding:FragmentListBinding
+    private val binding get() = _binding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_list, container, false)
-        val recyclerView = view.recyclerview
+
+         _binding = FragmentListBinding.inflate(inflater,container,false)
+      //  val view = inflater.inflate(R.layout.fragment_list, container, false)
+        val recyclerView = binding.recyclerview
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
 
@@ -40,7 +46,7 @@ class ListFragment : Fragment() {
             showEmptyDatabaseViews(data)
         })
         setHasOptionsMenu(true)
-        return view
+        return binding.root
     }
 
     private fun showEmptyDatabaseViews(data: Boolean) {
