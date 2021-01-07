@@ -42,35 +42,35 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.itemView.title_txt.text = datalist[position].title
-        holder.itemView.description_txt.text = datalist[position].description
-        holder.itemView.row_background.setOnClickListener {
-            val action =
-                ListFragmentDirections.actionListFragmentToUpdateFragment(datalist[position])
-            holder.itemView.findNavController().navigate(action)
-        }
-        val priority = datalist[position].priority
-        when (priority) {
-
-            Priority.HIGH -> holder.itemView.priority_indicator.setCardBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.red
-                )
-            )
-            Priority.MEDIUM -> holder.itemView.priority_indicator.setCardBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.yellow
-                )
-            )
-            Priority.LOW -> holder.itemView.priority_indicator.setCardBackgroundColor(
-                ContextCompat.getColor(
-                    holder.itemView.context,
-                    R.color.green
-                )
-            )
-        }
+//        holder.itemView.title_txt.text = datalist[position].title
+//        holder.itemView.description_txt.text = datalist[position].description
+//        holder.itemView.row_background.setOnClickListener {
+//            val action =
+//                ListFragmentDirections.actionListFragmentToUpdateFragment(datalist[position])
+//            holder.itemView.findNavController().navigate(action)
+//        }
+//        val priority = datalist[position].priority
+//        when (priority) {
+//
+//            Priority.HIGH -> holder.itemView.priority_indicator.setCardBackgroundColor(
+//                ContextCompat.getColor(
+//                    holder.itemView.context,
+//                    R.color.red
+//                )
+//            )
+//            Priority.MEDIUM -> holder.itemView.priority_indicator.setCardBackgroundColor(
+//                ContextCompat.getColor(
+//                    holder.itemView.context,
+//                    R.color.yellow
+//                )
+//            )
+//            Priority.LOW -> holder.itemView.priority_indicator.setCardBackgroundColor(
+//                ContextCompat.getColor(
+//                    holder.itemView.context,
+//                    R.color.green
+//                )
+//            )
+//        }
     }
 
     override fun getItemCount(): Int {
