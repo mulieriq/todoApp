@@ -42,6 +42,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+
 //        holder.itemView.title_txt.text = datalist[position].title
 //        holder.itemView.description_txt.text = datalist[position].description
 //        holder.itemView.row_background.setOnClickListener {
