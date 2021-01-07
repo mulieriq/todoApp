@@ -1,4 +1,4 @@
-package com.skylabstechke.todo.fragments.list
+package com.skylabstechke.todo.data
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -31,7 +31,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 //        val view = LayoutInflater.from(parent.context).inflate(R.layout.row_layout, parent, false)
 //        return MyViewHolder(view)
-        return  MyViewHolder.from(parent)
+        return MyViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {

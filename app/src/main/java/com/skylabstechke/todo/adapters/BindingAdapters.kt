@@ -1,4 +1,4 @@
-package com.skylabstechke.todo.fragments
+package com.skylabstechke.todo.adapters
 
 import android.view.View
 import android.widget.Spinner
