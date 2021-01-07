@@ -32,7 +32,11 @@ class BindingAdapters {
         @BindingAdapter("android:parsePriority")
         @JvmStatic
         fun parsePriorityToInt(view:Spinner,priority: Priority){
-
+             when (priority) {
+                Priority.HIGH -> 0
+                Priority.MEDIUM -> 1
+                Priority.LOW -> 2
+            }
         }
     }
 }
