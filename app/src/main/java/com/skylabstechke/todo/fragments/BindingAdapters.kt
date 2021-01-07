@@ -1,11 +1,13 @@
 package com.skylabstechke.todo.fragments
 
 import android.view.View
+import android.widget.Spinner
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.skylabstechke.todo.R
+import com.skylabstechke.todo.data.model.Priority
 
 class BindingAdapters {
     companion object {
@@ -25,6 +27,12 @@ class BindingAdapters {
                 true -> view.visibility = View.VISIBLE
                 false -> view.visibility = View.INVISIBLE
             }
+        }
+
+        @BindingAdapter("android:parsePriority")
+        @JvmStatic
+        fun parsePriorityToInt(view:Spinner,priority: Priority){
+
         }
     }
 }
