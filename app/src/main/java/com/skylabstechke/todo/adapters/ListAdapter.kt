@@ -1,4 +1,4 @@
-package com.skylabstechke.todo.data
+package com.skylabstechke.todo.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
