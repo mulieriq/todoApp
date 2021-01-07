@@ -2,14 +2,9 @@ package com.skylabstechke.todo.fragments.list
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.skylabstechke.todo.R
-import com.skylabstechke.todo.data.model.Priority
 import com.skylabstechke.todo.data.model.ToDoData
 import com.skylabstechke.todo.databinding.RowLayoutBinding
-import kotlinx.android.synthetic.main.row_layout.view.*
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
@@ -30,9 +25,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
                 val binding = RowLayoutBinding.inflate(layoutInflater, parent, false)
                 return MyViewHolder(binding)
             }
-
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -42,6 +35,7 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        holder.bind(datalist[position])
 
 //        holder.itemView.title_txt.text = datalist[position].title
 //        holder.itemView.description_txt.text = datalist[position].description
