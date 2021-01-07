@@ -7,12 +7,15 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.skylabstechke.todo.R
 import com.skylabstechke.todo.adapters.ListAdapter
 import com.skylabstechke.todo.data.viewmodel.ToDoViewModel
 import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
 import com.skylabstechke.todo.databinding.FragmentListBinding
+import com.skylabstechke.todo.utilis.SwipeToDelete
 
 
 class ListFragment : Fragment() {
@@ -36,6 +39,7 @@ class ListFragment : Fragment() {
         val recyclerView = binding.recyclerview
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireActivity())
+        swipeToDelete(recyclerView)
 
         mToDoViewModel.getAllData.observe(viewLifecycleOwner, Observer { data ->
             mSharedViewModel.checkIfDatabaseEmpty(data)
@@ -43,10 +47,23 @@ class ListFragment : Fragment() {
 
         })
 //        mSharedViewModel.emptyDatabase.observe(viewLifecycleOwner, Observer { data ->
-//            showEmptyDatabaseViews(data)
+//           showEmptyDatabaseViews(data)
 //        })
         setHasOptionsMenu(true)
         return binding.root
+    }
+
+
+    fun swipeToDelete(recyclerView:RecyclerView){
+        val swipeToDelete = object :SwipeToDelete(){
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+              val itemToDelete = adapter.datalist[viewHolder.adapterPosition]
+                mToDoViewModel.delete(itemToDelete)
+                Toast.makeText(requireContext(), "Item Deleted Successfully", Toast.LENGTH_LONG).show()
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeToDelete)
+        itemTouchHelper.attachToRecyclerView(recyclerView)
     }
 
     override fun onDestroyView() {

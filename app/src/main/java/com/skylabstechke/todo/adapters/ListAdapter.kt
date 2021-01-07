@@ -8,7 +8,7 @@ import com.skylabstechke.todo.databinding.RowLayoutBinding
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
-    private var datalist = emptyList<ToDoData>()
+     var datalist = emptyList<ToDoData>()
 
     class MyViewHolder(private val binding: RowLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -16,7 +16,6 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         fun bind(toDoData: ToDoData) {
             binding.toDoData = toDoData
             binding.executePendingBindings()
-
         }
 
         companion object {
