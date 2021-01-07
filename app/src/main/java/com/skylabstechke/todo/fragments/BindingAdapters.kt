@@ -1,6 +1,8 @@
 package com.skylabstechke.todo.fragments
 
+import android.view.View
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.skylabstechke.todo.R
@@ -15,6 +17,11 @@ class BindingAdapters {
                     view.findNavController().navigate(R.id.action_listFragment_to_detailsFragment)
                 }
             }
+        }
+        @BindingAdapter("android:emptyDatabase")
+        @JvmStatic
+        fun emptyDatabase(view:View,emptyDatabase:MutableLiveData<Boolean>){
+
         }
     }
 }

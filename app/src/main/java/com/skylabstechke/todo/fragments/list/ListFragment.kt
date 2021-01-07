@@ -31,6 +31,8 @@ class ListFragment : Fragment() {
         // Inflate the layout for this fragment
 
          _binding = FragmentListBinding.inflate(inflater,container,false)
+        binding.lifecycleOwner = this
+        binding.mSharedViewModel = mSharedViewModel
       //  val view = inflater.inflate(R.layout.fragment_list, container, false)
         val recyclerView = binding.recyclerview
         recyclerView.adapter = adapter
