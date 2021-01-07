@@ -41,7 +41,9 @@
             android:id="@+id/action_addFragment_to_listFragment"
             app:destination="@id/listFragment"
             app:enterAnim="@anim/from_left"
-            app:exitAnim="@anim/to_right" />
+            app:exitAnim="@anim/to_right"
+            app:popUpTo="@id/listFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
@@ -52,7 +54,9 @@
             android:id="@+id/action_updateFragment_to_listFragment"
             app:destination="@id/listFragment"
             app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left" />
+            app:exitAnim="@anim/to_left"
+            app:popUpTo="@id/listFragment"
+            app:popUpToInclusive="true" />
         <argument
             android:name="current"
             app:argType="com.skylabstechke.todo.data.model.ToDoData" />
@@ -60,7 +64,9 @@
             android:id="@+id/action_updateFragment_to_detailsFragment2"
             app:destination="@id/detailsFragment"
             app:enterAnim="@anim/from_top"
-            app:exitAnim="@anim/to_bottom" />
+            app:exitAnim="@anim/to_bottom"
+            app:popUpTo="@id/detailsFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -71,7 +77,9 @@
             android:id="@+id/action_detailsFragment_to_listFragment"
             app:destination="@id/listFragment"
             app:enterAnim="@anim/from_top"
-            app:exitAnim="@anim/to_bottom" />
+            app:exitAnim="@anim/to_bottom"
+            app:popUpTo="@id/listFragment"
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_detailsFragment_to_updateFragment2"
             app:destination="@id/updateFragment"
