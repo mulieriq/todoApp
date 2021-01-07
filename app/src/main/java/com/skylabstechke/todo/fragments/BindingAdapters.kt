@@ -2,6 +2,7 @@ package com.skylabstechke.todo.fragments
 
 import android.view.View
 import android.widget.Spinner
+import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.findNavController
@@ -37,6 +38,12 @@ class BindingAdapters {
                 Priority.MEDIUM -> view.setSelection(1)
                 Priority.LOW -> view.setSelection(2)
             }
+        }
+
+        @BindingAdapter("android:parsePriorityColor")
+        @JvmStatic
+        fun parsePriorityColor(cardView: CardView, priority: Priority){
+            when
         }
     }
 }
