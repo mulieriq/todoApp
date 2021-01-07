@@ -23,7 +23,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="24dp"
             android:ems="10"
-            android:inputType="datetime"
+            android:inputType="textPersonName"
             android:hint="@string/title"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
