@@ -33,9 +33,9 @@ class BindingAdapters {
         @JvmStatic
         fun parsePriorityToInt(view:Spinner,priority: Priority){
              when (priority) {
-                Priority.HIGH -> 0
-                Priority.MEDIUM -> 1
-                Priority.LOW -> 2
+                Priority.HIGH -> view.setSelection(0)
+                Priority.MEDIUM -> view.setSelection(1)
+                Priority.LOW -> view.setSelection(2)
             }
         }
     }
