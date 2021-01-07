@@ -14,7 +14,7 @@ class BindingAdapters {
         fun navigateToAddFragment(view: FloatingActionButton, navigate: Boolean) {
             view.setOnClickListener {
                 if (navigate) {
-                    view.findNavController().navigate(R.id.action_listFragment_to_detailsFragment)
+                    view.findNavController().navigate(R.id.action_listFragment_to_addFragment)
                 }
             }
         }

@@ -12,6 +12,7 @@ import com.skylabstechke.todo.R
 import com.skylabstechke.todo.data.model.ToDoData
 import com.skylabstechke.todo.data.viewmodel.ToDoViewModel
 import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
+import com.skylabstechke.todo.databinding.FragmentUpdateBinding
 import kotlinx.android.synthetic.main.fragment_update.*
 import kotlinx.android.synthetic.main.fragment_update.view.*
 
@@ -19,6 +20,8 @@ import kotlinx.android.synthetic.main.fragment_update.view.*
 class UpdateFragment : Fragment() {
 
     private val args by navArgs<UpdateFragmentArgs>()
+    private var _binding: FragmentUpdateBinding? = null
+    private val binding get() = _binding!!
     private val mShareViewModel: ShareViewModel by viewModels()
     private val mToDoViewModel: ToDoViewModel by viewModels()
     override fun onCreateView(
@@ -26,14 +29,16 @@ class UpdateFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_update, container, false)
+        _binding = FragmentUpdateBinding.inflate(inflater,container,false)
+        binding.args = args
+        //val view = inflater.inflate(R.layout.fragment_update, container, false)
         setHasOptionsMenu(true)
 
-        view.current_title_et.setText(args.current.title)
-        view.current_descriptions_et.setText(args.current.description)
-        view.current_priorities_spinner.setSelection(mShareViewModel.parsePriorityToInt(args.current.priority))
-        view.current_priorities_spinner.onItemSelectedListener = mShareViewModel.listener
-        return view
+//        view.current_title_et.setText(args.current.title)
+//        view.current_descriptions_et.setText(args.current.description)
+//        view.current_priorities_spinner.setSelection(mShareViewModel.parsePriorityToInt(args.current.priority))
+        binding.currentPrioritiesSpinner.onItemSelectedListener = mShareViewModel.listener
+        return binding.root
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -56,6 +61,11 @@ class UpdateFragment : Fragment() {
         builder.setTitle("Delete ${args.current.title}")
         builder.setMessage("Are you sure you want to delete ${args.current.title}")
         builder.create().show()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun updateItem() {
