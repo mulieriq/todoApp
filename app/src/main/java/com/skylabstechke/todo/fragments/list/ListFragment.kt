@@ -64,7 +64,7 @@ class ListFragment : Fragment() {
                 adapter.notifyItemRemoved(viewHolder.adapterPosition)
 //                Toast.makeText(requireContext(), "Item Deleted Successfully", Toast.LENGTH_LONG)
 //                    .show()
-                restoreDeleted(viewHolder.itemView,itemToDelete,viewHolder.adapterPosition )
+                restoreDeleted(viewHolder.itemView, itemToDelete, viewHolder.adapterPosition)
             }
         }
         val itemTouchHelper = ItemTouchHelper(swipeToDelete)
