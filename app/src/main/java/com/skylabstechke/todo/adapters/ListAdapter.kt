@@ -2,9 +2,11 @@ package com.skylabstechke.todo.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.skylabstechke.todo.data.model.ToDoData
 import com.skylabstechke.todo.databinding.RowLayoutBinding
+import com.skylabstechke.todo.utilis.ToDoDiffUtil
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
@@ -72,8 +74,11 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     }
 
     fun setData(toDoData: List<ToDoData>) {
-        datalist = toDoData
-        notifyDataSetChanged()
+        val defUtils = ToDoDiffUtil(datalist,toDoData)
+        val todoDiffresults = DiffUtil.calculateDiff(defUtils )
+        this.datalist = toDoData
+        todoDiffresults.dispatchUpdatesTo(this)
+        //notifyDataSetChanged()
     }
 
 }
