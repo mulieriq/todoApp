@@ -19,6 +19,7 @@ import com.skylabstechke.todo.data.viewmodel.ToDoViewModel
 import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
 import com.skylabstechke.todo.databinding.FragmentListBinding
 import com.skylabstechke.todo.utilis.SwipeToDelete
+import jp.wasabeef.recyclerview.animators.LandingAnimator
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
 
@@ -42,8 +43,8 @@ class ListFragment : Fragment() {
         //  val view = inflater.inflate(R.layout.fragment_list, container, false)
         val recyclerView = binding.recyclerview
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = StaggeredGridLayoutManager(2,Ori))
-        recyclerView.itemAnimator = SlideInUpAnimator().apply {
+        recyclerView.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL))
+        recyclerView.itemAnimator = LandingAnimator().apply {
             addDuration = 300
         }
         swipeToDelete(recyclerView)
