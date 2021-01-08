@@ -62,8 +62,8 @@ class ListFragment : Fragment() {
                 val itemToDelete = adapter.datalist[viewHolder.adapterPosition]
                 mToDoViewModel.delete(itemToDelete)
                 adapter.notifyItemRemoved(viewHolder.adapterPosition)
-                Toast.makeText(requireContext(), "Item Deleted Successfully", Toast.LENGTH_LONG)
-                    .show()
+//                Toast.makeText(requireContext(), "Item Deleted Successfully", Toast.LENGTH_LONG)
+//                    .show()
                 restoreDeleted(viewHolder.itemView,itemToDelete,viewHolder.adapterPosition )
             }
         }
@@ -83,6 +83,7 @@ class ListFragment : Fragment() {
             mToDoViewModel.insertData(toDoData)
             adapter.notifyItemChanged(position)
         }
+        snackbar.show()
 
 
     }
