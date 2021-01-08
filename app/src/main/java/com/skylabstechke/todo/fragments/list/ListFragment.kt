@@ -43,7 +43,7 @@ class ListFragment : Fragment() {
         //  val view = inflater.inflate(R.layout.fragment_list, container, false)
         val recyclerView = binding.recyclerview
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL))
+        recyclerView.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
         recyclerView.itemAnimator = LandingAnimator().apply {
             addDuration = 300
         }
