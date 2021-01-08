@@ -86,8 +86,8 @@ class ListFragment : Fragment() {
 
         )
         snackbar.setAction("Undo") {
-            mToDoViewModel.insertData(toDoData)
-            adapter.notifyItemChanged(position)
+            mToDoViewModel.insertData(toDoData),
+      // adapter.notifyItemChanged(position)
         }
         snackbar.show()
 
