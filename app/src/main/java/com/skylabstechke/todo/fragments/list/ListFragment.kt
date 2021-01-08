@@ -3,6 +3,7 @@ package com.skylabstechke.todo.fragments.list
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -21,7 +22,7 @@ import com.skylabstechke.todo.utilis.SwipeToDelete
 import jp.wasabeef.recyclerview.animators.LandingAnimator
 
 
-class ListFragment : Fragment() {
+class ListFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private val mToDoViewModel: ToDoViewModel by viewModels()
     private val mSharedViewModel: ShareViewModel by viewModels()
@@ -41,7 +42,8 @@ class ListFragment : Fragment() {
         //  val view = inflater.inflate(R.layout.fragment_list, container, false)
         val recyclerView = binding.recyclerview
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
+        recyclerView.layoutManager =
+            StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         recyclerView.itemAnimator = LandingAnimator().apply {
             addDuration = 300
         }
@@ -85,7 +87,7 @@ class ListFragment : Fragment() {
         )
         snackbar.setAction("Undo") {
             mToDoViewModel.insertData(toDoData)
-      // adapter.notifyItemChanged(position)
+            // adapter.notifyItemChanged(position)
         }
         snackbar.show()
     }
@@ -130,5 +132,23 @@ class ListFragment : Fragment() {
             Toast.makeText(requireContext(), "Items Deleted Successfully", Toast.LENGTH_LONG).show()
         }
         builder.create().show()
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        if (query != null) {
+            seachTrhoughDatabase(query)
+        }
+        return true
+    }
+
+    private fun seachTrhoughDatabase(query: String) {
+
+    }
+
+    override fun onQueryTextChange(query: String?): Boolean {
+        if (query != null) {
+            seachTrhoughDatabase(query)
+        }
+        return true
     }
 }
