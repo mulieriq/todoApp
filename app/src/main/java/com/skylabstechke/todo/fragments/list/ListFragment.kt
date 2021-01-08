@@ -61,8 +61,10 @@ class ListFragment : Fragment() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val itemToDelete = adapter.datalist[viewHolder.adapterPosition]
                 mToDoViewModel.delete(itemToDelete)
+                adapter.notifyItemRemoved(viewHolder.adapterPosition)
                 Toast.makeText(requireContext(), "Item Deleted Successfully", Toast.LENGTH_LONG)
                     .show()
+                restoreDeleted(viewHolder.itemView,itemToDelete,viewHolder.adapterPosition )
             }
         }
         val itemTouchHelper = ItemTouchHelper(swipeToDelete)
