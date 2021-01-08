@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.snackbar.Snackbar
@@ -20,7 +19,6 @@ import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
 import com.skylabstechke.todo.databinding.FragmentListBinding
 import com.skylabstechke.todo.utilis.SwipeToDelete
 import jp.wasabeef.recyclerview.animators.LandingAnimator
-import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 
 
 class ListFragment : Fragment() {
@@ -86,12 +84,10 @@ class ListFragment : Fragment() {
 
         )
         snackbar.setAction("Undo") {
-            mToDoViewModel.insertData(toDoData),
+            mToDoViewModel.insertData(toDoData)
       // adapter.notifyItemChanged(position)
         }
         snackbar.show()
-
-
     }
 
     override fun onDestroyView() {

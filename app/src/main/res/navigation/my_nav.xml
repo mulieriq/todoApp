@@ -61,12 +61,8 @@
             android:name="current"
             app:argType="com.skylabstechke.todo.data.model.ToDoData" />
         <action
-            android:id="@+id/action_updateFragment_to_detailsFragment2"
-            app:destination="@id/detailsFragment"
-            app:enterAnim="@anim/from_top"
-            app:exitAnim="@anim/to_bottom"
-            app:popUpTo="@id/detailsFragment"
-            app:popUpToInclusive="true" />
+            android:id="@+id/action_updateFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
