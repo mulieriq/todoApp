@@ -6,7 +6,8 @@ import com.skylabstechke.todo.data.model.ToDoData
 
 class ToDoRepository(private val toDoDao: ToDoDao) {
     val getAllData: LiveData<List<ToDoData>> = toDoDao.getAllData()
-     val sortByHighPriority : LiveData<List<ToDoData>>  = toDoDao.sortByHighPriority()
+    val sortByHighPriority: LiveData<List<ToDoData>> = toDoDao.sortByHighPriority()
+    val sortByLowPriority: LiveData<List<ToDoData>> = toDoDao.sortByLowPriority()
     suspend fun insertData(toDoData: ToDoData) {
         toDoDao.insertData(toDoData)
     }
@@ -23,7 +24,7 @@ class ToDoRepository(private val toDoDao: ToDoDao) {
         toDoDao.deleteAll()
     }
 
-     fun search(searchQuery: String): LiveData<List<ToDoData>> {
-       return toDoDao.searchDataBase(searchQuery)
+    fun search(searchQuery: String): LiveData<List<ToDoData>> {
+        return toDoDao.searchDataBase(searchQuery)
     }
 }

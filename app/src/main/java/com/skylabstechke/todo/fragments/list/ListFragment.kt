@@ -3,8 +3,8 @@ package com.skylabstechke.todo.fragments.list
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
-import androidx.appcompat.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -122,6 +122,10 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
 
         when (item.itemId) {
             R.id.menu_delete_all -> confirmDataRemoval()
+            R.id.menu_priority_high -> mToDoViewModel.sortByHighPriority.observe(viewLifecycleOwner,
+                Observer { adapter.setData(it) })
+            R.id.menu_priority_low -> mToDoViewModel.sortByLowPriority.observe(viewLifecycleOwner,
+                Observer { adapter.setData(it) })
         }
         return super.onOptionsItemSelected(item)
     }
@@ -146,9 +150,9 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     private fun seachTrhoughDatabase(query: String) {
-        var searchQuery :String = query
+        var searchQuery: String = query
         searchQuery = "%$searchQuery%"
-        mToDoViewModel.searchDataBase(searchQuery).observe(this, Observer {list->
+        mToDoViewModel.searchDataBase(searchQuery).observe(this, Observer { list ->
             list?.let {
                 adapter.setData(it)
             }
