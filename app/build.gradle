@@ -7,14 +7,10 @@ plugins {
     id "kotlin-android-extensions"
 }
 
-def keystoreProperties = new Properties()
-def keystorePropertiesFile = rootProject.file('key.properties')
-if (keystorePropertiesFile.exists()) {
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-}
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
+
 
     defaultConfig {
         applicationId "com.skylabstechke.todo"
@@ -25,14 +21,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs {
-        config {
-            keyAlias keystoreProperties['key']
-            keyPassword keystoreProperties['todo@skylabs']
-            storeFile file(keystoreProperties['/media/lee/Core/Projects/AndroidStudioProjects/ToDO/keystore/key.jks'])
-            storePassword keystoreProperties['todo@skylabs']
-        }
-    }
+
     buildTypes {
         release {
             minifyEnabled true
