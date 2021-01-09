@@ -152,10 +152,13 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
     private fun seachTrhoughDatabase(query: String) {
         var searchQuery: String = query
         searchQuery = "%$searchQuery%"
-        mToDoViewModel.searchDataBase(searchQuery).observe(this, Observer { list ->
-            list?.let {
-                adapter.setData(it)
-            }
+        mToDoViewModel.searchDataBase(searchQuery).observe(viewLifecycleOwner, Observer { list ->
+            adapter.setData(list)
+
+            ///Am not sure what this does soi reverted to above
+//            list?.let {
+//                adapter.setData(it)
+//            }
 
         })
 
