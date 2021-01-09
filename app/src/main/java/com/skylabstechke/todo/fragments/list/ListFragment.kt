@@ -142,6 +142,11 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
     }
 
     private fun seachTrhoughDatabase(query: String) {
+        var searchQuery :String = query
+        searchQuery = "%$searchQuery%"
+        mToDoViewModel.searchDataBase(searchQuery).observe{
+
+        }
 
     }
 
