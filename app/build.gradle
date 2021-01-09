@@ -29,7 +29,7 @@ android {
         config {
             keyAlias keystoreProperties['key']
             keyPassword keystoreProperties['todo@skylabs']
-            storeFile file(keystoreProperties['../keystore/key.jks'])
+            storeFile file(keystoreProperties['/media/lee/Core/Projects/AndroidStudioProjects/ToDO/keystore/key.jks'])
             storePassword keystoreProperties['todo@skylabs']
         }
     }
