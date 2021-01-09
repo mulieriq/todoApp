@@ -19,6 +19,7 @@ import com.skylabstechke.todo.data.viewmodel.ToDoViewModel
 import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
 import com.skylabstechke.todo.databinding.FragmentListBinding
 import com.skylabstechke.todo.utilis.SwipeToDelete
+import hideKeyboard
 import jp.wasabeef.recyclerview.animators.LandingAnimator
 
 
@@ -58,6 +59,7 @@ class ListFragment : Fragment(), SearchView.OnQueryTextListener {
 //           showEmptyDatabaseViews(data)
 //        })
         setHasOptionsMenu(true)
+        hideKeyboard(requireActivity())
         return binding.root
     }
 
