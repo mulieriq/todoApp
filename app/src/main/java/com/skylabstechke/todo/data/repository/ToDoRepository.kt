@@ -6,6 +6,7 @@ import com.skylabstechke.todo.data.model.ToDoData
 
 class ToDoRepository(private val toDoDao: ToDoDao) {
     val getAllData: LiveData<List<ToDoData>> = toDoDao.getAllData()
+     val sortByHighPriority : LiveData<List<ToDoData>>  = toDoDao.sortByHighPriority()
     suspend fun insertData(toDoData: ToDoData) {
         toDoDao.insertData(toDoData)
     }
