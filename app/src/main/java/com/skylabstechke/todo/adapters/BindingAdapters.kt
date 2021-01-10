@@ -2,6 +2,7 @@ package com.skylabstechke.todo.adapters
 
 import android.view.View
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
@@ -41,6 +42,15 @@ class BindingAdapters {
                 Priority.HIGH -> view.setSelection(0)
                 Priority.MEDIUM -> view.setSelection(1)
                 Priority.LOW -> view.setSelection(2)
+            }
+        }
+        @BindingAdapter("android:parsePriorityText")
+        @JvmStatic
+        fun parsePriorityText(view:TextView,priority: Priority){
+            when (priority) {
+                Priority.HIGH -> view.setText("High")
+                Priority.MEDIUM -> view.setText("MEDIUM")
+                Priority.LOW -> view.setText("LOW")
             }
         }
 
