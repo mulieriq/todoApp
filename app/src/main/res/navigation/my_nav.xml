@@ -17,14 +17,7 @@
             app:exitAnim="@anim/to_left"
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
-        <action
-            android:id="@+id/action_listFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment"
-            app:enterAnim="@anim/from_left"
-            app:exitAnim="@anim/to_right"
-            app:popEnterAnim="@anim/from_right"
-            app:popExitAnim="@anim/to_left"
-            app:popUpTo="@id/listFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -47,34 +40,17 @@
         <argument
             android:name="current"
             app:argType="com.skylabstechke.todo.data.model.ToDoData" />
-        <action
-            android:id="@+id/action_updateFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment"
-            app:enterAnim="@anim/from_top"
-            app:exitAnim="@anim/to_bottom" />
+
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.skylabstechke.todo.fragments.details.DetailsFragment"
         android:label="Item Details"
         tools:layout="@layout/fragment_details" >
-        <action
-            android:id="@+id/action_detailsFragment_to_listFragment"
-            app:destination="@id/listFragment"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left"
-            app:popUpTo="@id/listFragment"
-            app:popUpToInclusive="true" />
-        <action
-            android:id="@+id/action_detailsFragment_to_updateFragment"
-            app:destination="@id/updateFragment"
-            app:enterAnim="@anim/from_bottom"
-            app:exitAnim="@anim/to_top"
-            app:popEnterAnim="@anim/from_top"
-            app:popExitAnim="@anim/to_bottom"
-            app:popUpTo="@id/detailsFragment" />
+
         <argument
             android:name="current"
             app:argType="com.skylabstechke.todo.data.model.ToDoData" />
+
     </fragment>
 </navigation>

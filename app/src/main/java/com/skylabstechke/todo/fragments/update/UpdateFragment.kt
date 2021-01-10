@@ -69,7 +69,7 @@ class UpdateFragment : Fragment() {
             )
             mToDoViewModel.updateData(updateData)
             Toast.makeText(requireContext(), "Successfully Updated!", Toast.LENGTH_LONG).show()
-            findNavController().navigate(UpdateFragmentDirections.actionUpdateFragmentToDetailsFragment(updateData))
+        //    findNavController().navigate(UpdateFragmentDirections.actionUpdateFragmentToDetailsFragment(updateData))
         } else {
             Toast.makeText(requireContext(), "Please fill out all fields", Toast.LENGTH_LONG).show()
         }
