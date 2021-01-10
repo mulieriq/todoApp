@@ -12,7 +12,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.skylabstechke.todo.R
 import com.skylabstechke.todo.data.model.Priority
 import com.skylabstechke.todo.data.model.ToDoData
-import com.skylabstechke.todo.fragments.details.DetailsFragmentDirections
 import com.skylabstechke.todo.fragments.list.ListFragmentDirections
 
 class BindingAdapters {
@@ -26,10 +25,11 @@ class BindingAdapters {
                 }
             }
         }
+
         @BindingAdapter("android:emptyDatabase")
         @JvmStatic
-        fun emptyDatabase(view:View,emptyDatabase:MutableLiveData<Boolean>){
-            when(emptyDatabase.value){
+        fun emptyDatabase(view: View, emptyDatabase: MutableLiveData<Boolean>) {
+            when (emptyDatabase.value) {
                 true -> view.visibility = View.VISIBLE
                 false -> view.visibility = View.INVISIBLE
             }
@@ -37,16 +37,17 @@ class BindingAdapters {
 
         @BindingAdapter("android:parsePriority")
         @JvmStatic
-        fun parsePriorityToInt(view:Spinner,priority: Priority){
-             when (priority) {
+        fun parsePriorityToInt(view: Spinner, priority: Priority) {
+            when (priority) {
                 Priority.HIGH -> view.setSelection(0)
                 Priority.MEDIUM -> view.setSelection(1)
                 Priority.LOW -> view.setSelection(2)
             }
         }
+
         @BindingAdapter("android:parsePriorityText")
         @JvmStatic
-        fun parsePriorityText(view:TextView,priority: Priority){
+        fun parsePriorityText(view: TextView, priority: Priority) {
             when (priority) {
                 Priority.HIGH -> view.setText("High")
                 Priority.MEDIUM -> view.setText("MEDIUM")
@@ -56,18 +57,28 @@ class BindingAdapters {
 
         @BindingAdapter("android:parsePriorityColor")
         @JvmStatic
-        fun parsePriorityColor(cardView: CardView, priority: Priority){
-            when(priority){
+        fun parsePriorityColor(cardView: CardView, priority: Priority) {
+            when (priority) {
                 Priority.HIGH -> cardView.setCardBackgroundColor(cardView.context.getColor(R.color.red))
                 Priority.MEDIUM -> cardView.setCardBackgroundColor(cardView.context.getColor(R.color.yellow))
                 Priority.LOW -> cardView.setCardBackgroundColor(cardView.context.getColor(R.color.green))
             }
         }
 
+        @BindingAdapter("android:setTextPriorityColor")
+        @JvmStatic
+        fun setPriorityTextColor(view: TextView, priority: Priority) {
+            when (priority) {
+                Priority.HIGH -> view.setTextColor(view.context.getColor(R.color.red))
+                Priority.MEDIUM -> view.setTextColor(view.context.getColor(R.color.yellow))
+                Priority.LOW -> view.setTextColor(view.context.getColor(R.color.green))
+            }
+        }
+
         @BindingAdapter("android:sendDataToUpdateFragment")
         @JvmStatic
 
-        fun sendDataToUpdateFragment(view:ConstraintLayout,curretItem:ToDoData){
+        fun sendDataToUpdateFragment(view: ConstraintLayout, curretItem: ToDoData) {
             view.setOnClickListener {
                 val action = ListFragmentDirections.actionListFragmentToUpdateFragment(curretItem)
                 view.findNavController().navigate(action)
@@ -76,9 +87,10 @@ class BindingAdapters {
 
         @BindingAdapter("android:sendDataToDetailsFragment")
         @JvmStatic
-        fun sendDataToDetailsFragment(view:ConstraintLayout,curretItem:ToDoData){
+        fun sendDataToDetailsFragment(view: ConstraintLayout, curretItem: ToDoData) {
             view.setOnClickListener {
-                view.findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailsFragment(curretItem))
+                view.findNavController()
+                    .navigate(ListFragmentDirections.actionListFragmentToDetailsFragment(curretItem))
             }
         }
     }
