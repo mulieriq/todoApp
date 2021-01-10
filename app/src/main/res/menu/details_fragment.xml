@@ -6,4 +6,5 @@
         android:iconTint="@color/white"
         android:title="@string/update"
         app:showAsAction="always" />
+    <item android:id="@+id/update_delete" android:title="@string/delete"  android:iconTint="@color/white" app:showAsAction="never"/>
 </menu>
