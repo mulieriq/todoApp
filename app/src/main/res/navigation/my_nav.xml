@@ -83,5 +83,8 @@
             app:exitAnim="@anim/to_top"
             app:popEnterAnim="@anim/from_top"
             app:popExitAnim="@anim/to_bottom" />
+        <argument
+            android:name="current"
+            app:argType="com.skylabstechke.todo.data.model.ToDoData" />
     </fragment>
 </navigation>
