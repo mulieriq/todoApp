@@ -46,11 +46,11 @@ class DetailsFragment : Fragment() {
 
 
         if (item.itemId == R.id.update_item) {
-         //   findNavController().navigate(
-//                DetailsFragmentDirections.actionDetailsFragmentToUpdateFragment(
-//                    args.current
-//                )
-        //    )
+            findNavController().navigate(
+                DetailsFragmentDirections.actionDetailsFragmentToUpdateFragment2(
+                    args.current
+                )
+            )
 
         } else if (item.itemId == R.id.update_delete) {
             confirmItemRemoval()

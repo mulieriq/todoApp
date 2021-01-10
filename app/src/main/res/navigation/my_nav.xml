@@ -43,6 +43,11 @@
         <argument
             android:name="current"
             app:argType="com.skylabstechke.todo.data.model.ToDoData" />
+        <action
+            android:id="@+id/action_updateFragment_to_detailsFragment2"
+            app:destination="@id/detailsFragment"
+            app:popUpTo="@id/detailsFragment"
+            app:popUpToInclusive="true" />
 
     </fragment>
     <fragment
@@ -59,6 +64,9 @@
             app:destination="@id/listFragment"
             app:popUpTo="@id/listFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_detailsFragment_to_updateFragment2"
+            app:destination="@id/updateFragment" />
 
     </fragment>
 </navigation>
