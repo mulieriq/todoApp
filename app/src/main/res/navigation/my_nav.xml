@@ -18,13 +18,6 @@
             app:popEnterAnim="@anim/from_left"
             app:popExitAnim="@anim/to_right" />
         <action
-            android:id="@+id/action_listFragment_to_updateFragment"
-            app:destination="@id/updateFragment"
-            app:enterAnim="@anim/from_left"
-            app:exitAnim="@anim/to_right"
-            app:popEnterAnim="@anim/from_right"
-            app:popExitAnim="@anim/to_left" />
-        <action
             android:id="@+id/action_listFragment_to_detailsFragment"
             app:destination="@id/detailsFragment"
             app:enterAnim="@anim/from_left"
@@ -50,19 +43,14 @@
         android:name="com.skylabstechke.todo.fragments.update.UpdateFragment"
         android:label="Update ToDo"
         tools:layout="@layout/fragment_update" >
-        <action
-            android:id="@+id/action_updateFragment_to_listFragment"
-            app:destination="@id/listFragment"
-            app:enterAnim="@anim/from_right"
-            app:exitAnim="@anim/to_left"
-            app:popUpTo="@id/listFragment"
-            app:popUpToInclusive="true" />
         <argument
             android:name="current"
             app:argType="com.skylabstechke.todo.data.model.ToDoData" />
         <action
             android:id="@+id/action_updateFragment_to_detailsFragment"
-            app:destination="@id/detailsFragment" />
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/from_top"
+            app:exitAnim="@anim/to_bottom" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -82,7 +70,8 @@
             app:enterAnim="@anim/from_bottom"
             app:exitAnim="@anim/to_top"
             app:popEnterAnim="@anim/from_top"
-            app:popExitAnim="@anim/to_bottom" />
+            app:popExitAnim="@anim/to_bottom"
+            app:popUpTo="@id/detailsFragment" />
         <argument
             android:name="current"
             app:argType="com.skylabstechke.todo.data.model.ToDoData" />
