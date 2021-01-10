@@ -11,7 +11,7 @@ import com.skylabstechke.todo.databinding.FragmentDetailsBinding
 
 class DetailsFragment : Fragment() {
     private val args by navArgs<DetailsFragmentArgs>()
-    private var _binding FragmentDetailsBinding? = null
+    private var _binding:FragmentDetailsBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -20,9 +20,9 @@ class DetailsFragment : Fragment() {
     ): View {
         _binding = FragmentDetailsBinding.inflate(inflater,container,false)
         binding.args = args
-        // Inflate the layout for this fragment
+
         return binding.root
-        inflater.inflate(R.layout.fragment_details, container, false)
+
     }
 
 }
