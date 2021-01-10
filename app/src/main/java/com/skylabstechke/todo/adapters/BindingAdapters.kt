@@ -58,8 +58,9 @@ class BindingAdapters {
 
         fun sendDataToUpdateFragment(view:ConstraintLayout,curretItem:ToDoData){
             view.setOnClickListener {
-                val action = ListFragmentDirections.actionListFragmentToUpdateFragment(curretItem)
-                view.findNavController().navigate(action)
+//                val action = ListFragmentDirections.actionListFragmentToUpdateFragment(curretItem)
+//                view.findNavController().navigate(action)
+                view.findNavController().navigate(R.id.action_listFragment_to_detailsFragment)
             }
         }
     }
