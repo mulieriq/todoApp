@@ -11,6 +11,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.skylabstechke.todo.R
 import com.skylabstechke.todo.data.model.Priority
 import com.skylabstechke.todo.data.model.ToDoData
+import com.skylabstechke.todo.fragments.details.DetailsFragmentDirections
 import com.skylabstechke.todo.fragments.list.ListFragmentDirections
 
 class BindingAdapters {
@@ -58,9 +59,16 @@ class BindingAdapters {
 
         fun sendDataToUpdateFragment(view:ConstraintLayout,curretItem:ToDoData){
             view.setOnClickListener {
-//                val action = ListFragmentDirections.actionListFragmentToUpdateFragment(curretItem)
-//                view.findNavController().navigate(action)
-                view.findNavController().navigate(R.id.action_listFragment_to_detailsFragment)
+                val action = ListFragmentDirections.actionListFragmentToUpdateFragment(curretItem)
+                view.findNavController().navigate(action)
+            }
+        }
+
+        @BindingAdapter("android:sendDataToDetailsFragment")
+        @JvmStatic
+        fun sendDataToDetailsFragment(view:ConstraintLayout,curretItem:ToDoData){
+            view.setOnClickListener {
+                view.findNavController().navigate(ListFragmentDirections.actionListFragmentToDetailsFragment(curretItem))
             }
         }
     }
