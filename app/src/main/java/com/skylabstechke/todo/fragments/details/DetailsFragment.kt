@@ -19,7 +19,6 @@ class DetailsFragment : Fragment() {
     ): View {
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         binding.args = args
-
         setHasOptionsMenu(true)
         return binding.root
 
