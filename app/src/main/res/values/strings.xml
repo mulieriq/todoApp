@@ -16,6 +16,8 @@
     <string name="my_title">My Title</string>
     <string name="textview">TextView</string>
     <string name="some_random_description">Some random Description</string>
+    <string name="priority">Priority</string>
+    <string name="decription">Decription</string>
 
     <string-array name="priorities">
         <item>High Priority</item>
