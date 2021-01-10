@@ -18,6 +18,7 @@
     <string name="some_random_description">Some random Description</string>
     <string name="priority">Priority</string>
     <string name="decription">Decription</string>
+    <string name="update">Update</string>
 
     <string-array name="priorities">
         <item>High Priority</item>
