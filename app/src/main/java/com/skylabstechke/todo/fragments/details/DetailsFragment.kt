@@ -47,7 +47,7 @@ class DetailsFragment : Fragment() {
 
         if (item.itemId == R.id.update_item) {
             findNavController().navigate(
-                DetailsFragmentDirections.actionDetailsFragmentToUpdateFragment2(
+                DetailsFragmentDirections.actionDetailsFragmentToUpdateFragment(
                     args.current
                 )
             )

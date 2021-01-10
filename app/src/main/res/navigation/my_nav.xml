@@ -61,12 +61,12 @@
         <action
             android:id="@+id/action_detailsFragment_to_listFragment"
             app:destination="@id/listFragment"
-            app:enterAnim="@anim/from_top"
-            app:exitAnim="@anim/to_bottom"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
             app:popUpTo="@id/listFragment"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_detailsFragment_to_updateFragment2"
+            android:id="@+id/action_detailsFragment_to_updateFragment"
             app:destination="@id/updateFragment"
             app:enterAnim="@anim/from_bottom"
             app:exitAnim="@anim/to_top"
