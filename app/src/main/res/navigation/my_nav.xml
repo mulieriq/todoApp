@@ -50,6 +50,7 @@
         <action
             android:id="@+id/action_updateFragment_to_detailsFragment2"
             app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/from_top"
             app:popUpTo="@id/detailsFragment"
             app:popUpToInclusive="true" />
 
@@ -71,7 +72,11 @@
             app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_detailsFragment_to_updateFragment2"
-            app:destination="@id/updateFragment" />
+            app:destination="@id/updateFragment"
+            app:enterAnim="@anim/from_bottom"
+            app:exitAnim="@anim/to_top"
+            app:popEnterAnim="@anim/from_top"
+            app:popExitAnim="@anim/to_bottom" />
 
     </fragment>
 </navigation>
