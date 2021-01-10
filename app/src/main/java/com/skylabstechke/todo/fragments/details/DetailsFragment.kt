@@ -34,7 +34,7 @@ class DetailsFragment : Fragment() {
         builder.setPositiveButton("Yes") { _, _ ->
             mToDoViewModel.delete(args.current)
             Toast.makeText(requireContext(), "Item Deleted", Toast.LENGTH_LONG).show()
-            //findNavController().navigate(R.id.action_detailsFragment_to_listFragment)
+            findNavController().navigate(R.id.action_detailsFragment_to_listFragment)
         }
         builder.setNegativeButton("No") { _, _ -> }
         builder.setTitle("Delete ${args.current.title}")

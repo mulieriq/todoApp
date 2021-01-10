@@ -89,8 +89,8 @@ class BindingAdapters {
         @JvmStatic
         fun sendDataToDetailsFragment(view: ConstraintLayout, curretItem: ToDoData) {
             view.setOnClickListener {
-//                view.findNavController()
-//                    .navigate(ListFragmentDirections.actionListFragmentToDetailsFragment(curretItem))
+                view.findNavController()
+                    .navigate(ListFragmentDirections.actionListFragmentToDetailsFragment(curretItem))
             }
         }
     }
