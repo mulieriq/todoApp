@@ -1,5 +1,6 @@
 package com.skylabstechke.todo.fragments.add
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -12,6 +13,7 @@ import com.skylabstechke.todo.data.viewmodel.ToDoViewModel
 import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
+import java.util.*
 
 class AddFragment : Fragment() {
 
@@ -26,6 +28,7 @@ class AddFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_add, container, false)
         setHasOptionsMenu(true)
         view.priorities_spinner.onItemSelectedListener = mShareViewModel.listener
+
         return view
     }
 
@@ -64,22 +67,5 @@ class AddFragment : Fragment() {
         }
     }
 
-    private fun datePicker(view: View) {
-        val myCalender = Calendar.getInstance()
-        val year = myCalender.get(Calendar.YEAR)
-        val month = myCalender.get(Calendar.MONTH)
-        val day = myCalender.get(Calendar.DAY_OF_MONTH)
 
-        val dpd = DatePickerDialog(
-            this,
-            DatePickerDialog.OnDateSetListener { view, selectedYear, selectedMonth, selectedDayOfMonth ->
-                calculateMinutes(selectedYear, selectedMonth + 1, selectedDayOfMonth)
-            },
-            year,
-            month,
-            day
-        )
-        dpd.datePicker.setMaxDate(Date().time - 84600000)
-        dpd.show()
-    }
 }
