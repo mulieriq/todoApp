@@ -16,10 +16,9 @@ import com.skylabstechke.todo.data.viewmodel.ToDoViewModel
 import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
-import java.sql.Date
-import java.util.*
 
-class AddFragment : Fragment() , DatePickerDialog.OnDateSetListener , TimePickerDialog.OnTimeSetListener {
+class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
+    TimePickerDialog.OnTimeSetListener {
 
     private val mToDoViewModel: ToDoViewModel by viewModels()
     private val mShareViewModel: ShareViewModel by viewModels()
@@ -32,6 +31,11 @@ class AddFragment : Fragment() , DatePickerDialog.OnDateSetListener , TimePicker
         val view = inflater.inflate(R.layout.fragment_add, container, false)
         setHasOptionsMenu(true)
         view.priorities_spinner.onItemSelectedListener = mShareViewModel.listener
+        view.date_time.setOnClickListener {
+            val toast =
+                Toast.makeText(requireContext(), "Tapped date", Toast.LENGTH_LONG)
+            toast.show()
+        }
 
         return view
     }
