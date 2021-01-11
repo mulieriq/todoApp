@@ -19,6 +19,7 @@
     <string name="priority">Priority</string>
     <string name="decription">Decription</string>
     <string name="update">Update</string>
+    <string name="deadline">Deadline</string>
 
     <string-array name="priorities">
         <item>High Priority</item>
