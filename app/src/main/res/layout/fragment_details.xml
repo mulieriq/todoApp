@@ -83,7 +83,6 @@
             android:background="@drawable/custom_input"
             android:ems="10"
             android:gravity="center_vertical"
-            android:hint="@string/deadline"
             android:padding="5dp"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"

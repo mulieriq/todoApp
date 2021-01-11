@@ -16,9 +16,23 @@ import com.skylabstechke.todo.data.viewmodel.ToDoViewModel
 import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
+import java.util.*
 
 class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
     TimePickerDialog.OnTimeSetListener {
+
+
+    var day = 0
+    var month = 0
+    var year = 0
+    var hour = 0
+    var minute = 0
+
+    var savedDay = 0
+    var savedMonth = 0
+    var savedYear = 0
+    var savedHour = 0
+    var savedMinute = 0
 
     private val mToDoViewModel: ToDoViewModel by viewModels()
     private val mShareViewModel: ShareViewModel by viewModels()
@@ -31,13 +45,25 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
         val view = inflater.inflate(R.layout.fragment_add, container, false)
         setHasOptionsMenu(true)
         view.priorities_spinner.onItemSelectedListener = mShareViewModel.listener
-        view.date_time.setOnClickListener {
-            val toast =
-                Toast.makeText(requireContext(), "Tapped date", Toast.LENGTH_LONG)
-            toast.show()
-        }
-
+        pickDate(view)
         return view
+    }
+
+
+    private fun getDateTimeCalender() {
+        val cal = Calendar.getInstance()
+        day = cal.get(Calendar.DAY_OF_MONTH)
+        month = cal.get(Calendar.MONTH)
+        year = cal.get(Calendar.YEAR)
+        hour = cal.get(Calendar.HOUR)
+        minute = cal.get(Calendar.MINUTE)
+    }
+
+    private fun pickDate(view: View) {
+        view.date_time.setOnClickListener {
+            getDateTimeCalender()
+            DatePickerDialog(requireContext(), this, year, month, day).show()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -75,12 +101,18 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
         }
     }
 
-    override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
-        TODO("Not yet implemented")
+    override fun onDateSet(view: DatePicker?, year: Int, month: Int, day: Int) {
+        savedDay = day
+        savedMonth = month
+        savedYear = year
+        getDateTimeCalender()
+        TimePickerDialog(requireContext(), this, hour, minute, true).show()
     }
 
-    override fun onTimeSet(p0: TimePicker?, p1: Int, p2: Int) {
-        TODO("Not yet implemented")
+    override fun onTimeSet(view: TimePicker?, hour: Int, minutes: Int) {
+        savedHour = hour
+        savedMinute = minute
+        date_time.setText("$savedDay-$savedMonth-$savedYear T $$savedHour:$savedMinute")
     }
 
 
