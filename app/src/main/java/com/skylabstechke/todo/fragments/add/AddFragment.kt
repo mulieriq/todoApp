@@ -1,8 +1,11 @@
 package com.skylabstechke.todo.fragments.add
 
 import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.*
+import android.widget.DatePicker
+import android.widget.TimePicker
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -13,9 +16,10 @@ import com.skylabstechke.todo.data.viewmodel.ToDoViewModel
 import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
 import kotlinx.android.synthetic.main.fragment_add.*
 import kotlinx.android.synthetic.main.fragment_add.view.*
+import java.sql.Date
 import java.util.*
 
-class AddFragment : Fragment() {
+class AddFragment : Fragment() , DatePickerDialog.OnDateSetListener , TimePickerDialog.OnTimeSetListener {
 
     private val mToDoViewModel: ToDoViewModel by viewModels()
     private val mShareViewModel: ShareViewModel by viewModels()
@@ -65,6 +69,14 @@ class AddFragment : Fragment() {
             Toast.makeText(requireContext(), "Please fill out all fields!", Toast.LENGTH_LONG)
                 .show()
         }
+    }
+
+    override fun onDateSet(p0: DatePicker?, p1: Int, p2: Int, p3: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onTimeSet(p0: TimePicker?, p1: Int, p2: Int) {
+        TODO("Not yet implemented")
     }
 
 
