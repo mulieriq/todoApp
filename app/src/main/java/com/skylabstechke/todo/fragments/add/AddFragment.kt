@@ -1,16 +1,20 @@
 package com.skylabstechke.todo.fragments.add
 
-import android.app.DatePickerDialog
-import android.app.TimePickerDialog
+import android.app.*
+import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.DatePicker
 import android.widget.TimePicker
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.skylabstechke.todo.R
+import com.skylabstechke.todo.app.ReminderBroadcast
 import com.skylabstechke.todo.data.model.ToDoData
 import com.skylabstechke.todo.data.viewmodel.ToDoViewModel
 import com.skylabstechke.todo.data.viewmodel.common.ShareViewModel
@@ -46,6 +50,7 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
         setHasOptionsMenu(true)
         view.priorities_spinner.onItemSelectedListener = mShareViewModel.listener
         pickDate(view)
+        createNotificationChannel()
         return view
     }
 
@@ -74,6 +79,15 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.menu_add) {
             insertDataToDb()
+            val intent: Intent = Intent(requireContext(), ReminderBroadcast::class.java)
+            val pendingIntent:PendingIntent = PendingIntent.getBroadcast(requireContext(),0,intent,0)
+
+            val alarm:AlarmManager =  requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            var t = System.currentTimeMillis()
+            var tm = 1000*10
+            alarm.set(AlarmManager.RTC_WAKEUP,t+tm, pendingIntent)
+
+
         }
         return super.onOptionsItemSelected(item)
     }
@@ -113,6 +127,23 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
         savedHour = hour
         savedMinute = minute
         date_time.setText("$savedDay-$savedMonth-$savedYear T $$savedHour:$savedMinute")
+    }
+
+    private fun createNotificationChannel() {
+        // Create the NotificationChannel, but only on API 26+ because
+        // the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val channel = NotificationChannel("notifyuser", "Muli", importance).apply {
+                description = "descriptionText"
+            }
+            // Register the channel with the system
+            val notificationManager: NotificationManager =
+               requireActivity(). getSystemService(
+                    NotificationManager::class.java
+                ) as NotificationManager
+            notificationManager.createNotificationChannel(channel)
+        }
     }
 
 }
