@@ -115,5 +115,4 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
         date_time.setText("$savedDay-$savedMonth-$savedYear T $$savedHour:$savedMinute")
     }
 
-
 }
