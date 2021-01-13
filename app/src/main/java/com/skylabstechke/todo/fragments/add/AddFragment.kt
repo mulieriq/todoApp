@@ -92,9 +92,10 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         if (item.itemId == R.id.menu_add) {
+            val mTitle = title_et.text.toString()
 
             insertDataToDb()
-            val intent: Intent = Intent(requireContext(), ReminderBroadcast::class.java)
+            val intent: Intent = Intent(requireContext(), ReminderBroadcast(mTitle)::class.java)
             val pendingIntent: PendingIntent =
                 PendingIntent.getBroadcast(requireContext(), 0, intent, 0)
             val alarm: AlarmManager =
@@ -143,11 +144,12 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
     }
 
     private fun createNotificationChannel() {
+        val mTitle = title_et.text.toString()
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel("notifyuser", "Muli", importance).apply {
+            val channel = NotificationChannel(mTitle, "Muli", importance).apply {
                 description = "descriptionText"
             }
             // Register the channel with the system
