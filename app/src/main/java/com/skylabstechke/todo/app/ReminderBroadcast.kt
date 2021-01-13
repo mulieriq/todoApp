@@ -7,9 +7,9 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.skylabstechke.todo.R
 
-class ReminderBroadcast ( val id:String): BroadcastReceiver() {
+class ReminderBroadcast : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
-        var builder = NotificationCompat.Builder(context, id)
+        var builder = NotificationCompat.Builder(context, "notifyuser")
             .setSmallIcon(R.drawable.ic_save)
             .setContentTitle("Reminder")
             .setContentText("changamka")

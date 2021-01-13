@@ -18,6 +18,7 @@ class ToDoViewModel(application: Application) : AndroidViewModel(application) {
     lateinit var getAllData: LiveData<List<ToDoData>>
     lateinit var sortByHighPriority: LiveData<List<ToDoData>>
     lateinit var sortByLowPriority: LiveData<List<ToDoData>>
+    var brtime:String?=null
 
     init {
         repository = ToDoRepository(toDoDao)
