@@ -9,7 +9,6 @@ import android.view.*
 import android.widget.DatePicker
 import android.widget.TimePicker
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -67,7 +66,9 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
     private fun pickDate(view: View) {
         view.date_time.setOnClickListener {
             getDateTimeCalender()
-            DatePickerDialog(requireContext(), this, year, month, day).show()
+            val dt = DatePickerDialog(requireContext(), this, year, month, day)
+            dt.setTitle("Reminder Date")
+            dt.show()
         }
     }
 
@@ -76,16 +77,36 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
         inflater.inflate(R.menu.add_fragment_menu, menu)
     }
 
+    fun getmillis(): Long {
+        var cal = Calendar.getInstance()
+        cal.set(Calendar.YEAR, savedYear)
+        cal.set(Calendar.MONTH, savedMonth)
+        cal.set(Calendar.DAY_OF_MONTH, savedDay)
+        cal.set(Calendar.HOUR, savedHour)
+        cal.set(Calendar.MINUTE, savedMinute)
+
+        val millis: Long = cal.timeInMillis
+        return millis
+
+
+    }
+
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
         if (item.itemId == R.id.menu_add) {
+
             insertDataToDb()
             val intent: Intent = Intent(requireContext(), ReminderBroadcast::class.java)
-            val pendingIntent:PendingIntent = PendingIntent.getBroadcast(requireContext(),0,intent,0)
 
-            val alarm:AlarmManager =  requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            val pendingIntent: PendingIntent =
+                PendingIntent.getBroadcast(requireContext(), 0, intent, 0)
+
+            val alarm: AlarmManager =
+                requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
             var t = System.currentTimeMillis()
-            var tm = 1000*10
-            alarm.set(AlarmManager.RTC_WAKEUP,t+tm, pendingIntent)
+            var tm = 1000 * 10
+            alarm.set(AlarmManager.RTC_WAKEUP, t + tm, pendingIntent)
 
 
         }
@@ -139,7 +160,7 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
             }
             // Register the channel with the system
             val notificationManager: NotificationManager =
-               requireActivity(). getSystemService(
+                requireActivity().getSystemService(
                     NotificationManager::class.java
                 ) as NotificationManager
             notificationManager.createNotificationChannel(channel)
