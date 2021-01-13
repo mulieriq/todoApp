@@ -95,7 +95,7 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
             val mTitle = title_et.text.toString()
 
             insertDataToDb()
-            val intent: Intent = Intent(requireContext(), ReminderBroadcast(mTitle)::class.java)
+            val intent: Intent = Intent(requireContext(), ReminderBroadcast("$day$year$hour:$minute")::class.java)
             val pendingIntent: PendingIntent =
                 PendingIntent.getBroadcast(requireContext(), 0, intent, 0)
             val alarm: AlarmManager =
@@ -149,7 +149,7 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
         // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel(mTitle, "Muli", importance).apply {
+            val channel = NotificationChannel("$day$year$hour:$minute", "Muli", importance).apply {
                 description = "descriptionText"
             }
             // Register the channel with the system
