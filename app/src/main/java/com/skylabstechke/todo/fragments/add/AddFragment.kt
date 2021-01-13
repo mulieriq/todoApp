@@ -87,8 +87,6 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
 
         val millis: Long = cal.timeInMillis
         return millis
-
-
     }
 
 
@@ -98,17 +96,13 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
 
             insertDataToDb()
             val intent: Intent = Intent(requireContext(), ReminderBroadcast::class.java)
-
             val pendingIntent: PendingIntent =
                 PendingIntent.getBroadcast(requireContext(), 0, intent, 0)
-
             val alarm: AlarmManager =
                 requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
             var t = System.currentTimeMillis()
             var tm = getmillis() * 10
             alarm.set(AlarmManager.RTC_WAKEUP, t + tm, pendingIntent)
-
-
         }
         return super.onOptionsItemSelected(item)
     }
