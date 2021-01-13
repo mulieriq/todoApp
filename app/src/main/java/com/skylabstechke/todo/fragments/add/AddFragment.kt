@@ -105,7 +105,7 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
             val alarm: AlarmManager =
                 requireActivity().getSystemService(Context.ALARM_SERVICE) as AlarmManager
             var t = System.currentTimeMillis()
-            var tm = 1000 * 10
+            var tm = getmillis() * 10
             alarm.set(AlarmManager.RTC_WAKEUP, t + tm, pendingIntent)
 
 
