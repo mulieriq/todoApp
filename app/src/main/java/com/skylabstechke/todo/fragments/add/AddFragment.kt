@@ -149,7 +149,7 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
         // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel("notifyuser", "Muli", importance).apply {
+            val channel = NotificationChannel(Calendar.getInstance().timeInMillis.toInt().toString(), "Muli", importance).apply {
                 description = "descriptionText"
             }
             // Register the channel with the system
