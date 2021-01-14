@@ -79,11 +79,4 @@ class ShareViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-//    fun parsePriorityToInt(priority: Priority): Int {
-//        return when (priority) {
-//            Priority.HIGH -> 0
-//            Priority.MEDIUM -> 1
-//            Priority.LOW -> 2
-//        }
-//    }
 }

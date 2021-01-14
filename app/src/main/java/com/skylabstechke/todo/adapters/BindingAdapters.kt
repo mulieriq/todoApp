@@ -75,16 +75,6 @@ class BindingAdapters {
             }
         }
 
-//        @BindingAdapter("android:sendDataToUpdateFragment")
-//        @JvmStatic
-//
-//        fun sendDataToUpdateFragment(view: ConstraintLayout, curretItem: ToDoData) {
-//            view.setOnClickListener {
-//                val action = ListFragmentDirections.actionListFragmentToUpdateFragment(curretItem)
-//                view.findNavController().navigate(action)
-//            }
-//        }
-
         @BindingAdapter("android:sendDataToDetailsFragment")
         @JvmStatic
         fun sendDataToDetailsFragment(view: ConstraintLayout, curretItem: ToDoData) {
