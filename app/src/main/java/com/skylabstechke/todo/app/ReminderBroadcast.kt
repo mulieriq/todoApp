@@ -16,7 +16,7 @@ class ReminderBroadcast : BroadcastReceiver() {
             .setContentText("changamka")
             .setPriority(NotificationCompat.PRIORITY_HIGH)
         NotificationManagerCompat.from(context).apply {
-            notify(200, builder.build())
+            notify(Calendar.getInstance().timeInMillis.toInt(), builder.build())
         }
 
 
