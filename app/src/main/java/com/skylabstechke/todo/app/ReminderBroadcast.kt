@@ -10,13 +10,15 @@ import java.util.*
 
 class ReminderBroadcast : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
-        var builder = NotificationCompat.Builder(context, "notifyme")
-            .setSmallIcon(R.drawable.ic_save)
-            .setContentTitle("Reminder")
-            .setContentText("changamka")
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
+        var builder = NotificationCompat.Builder(context, "notifyme").apply {
+            setSmallIcon(R.drawable.ic_save)
+            setContentTitle("Reminder")
+            setContentText("changamka")
+            setPriority(NotificationCompat.PRIORITY_HIGH)
+        }
+
         NotificationManagerCompat.from(context).apply {
-            notify(Calendar.getInstance().timeInMillis.toInt(), builder.build())
+            notify(200, builder.build())
         }
 
 
