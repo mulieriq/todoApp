@@ -10,7 +10,7 @@ import java.util.*
 
 class ReminderBroadcast : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
-        var builder = NotificationCompat.Builder(context, Calendar.getInstance().timeInMillis.toInt().toString())
+        var builder = NotificationCompat.Builder(context, "notifyme")
             .setSmallIcon(R.drawable.ic_save)
             .setContentTitle("Reminder")
             .setContentText("changamka")
