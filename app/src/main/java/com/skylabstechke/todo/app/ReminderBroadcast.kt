@@ -13,7 +13,7 @@ class ReminderBroadcast : BroadcastReceiver() {
         var builder = NotificationCompat.Builder(context, "notifyme").apply {
             setSmallIcon(R.drawable.ic_save)
             setContentTitle("Reminder")
-            setContentText("changamka")
+            setContentText("changamka msee")
             setPriority(NotificationCompat.PRIORITY_HIGH)
         }
 
