@@ -83,5 +83,13 @@ class BindingAdapters {
                     .navigate(ListFragmentDirections.actionListFragmentToDetailsFragment(curretItem))
             }
         }
+
+        @BindingAdapter("android:increaseTextSize")
+        @JvmStatic
+        fun increaseFontSize(view:TextView,increase0: Boolean){
+            var multi : Int = 12
+
+
+        }
     }
 }
