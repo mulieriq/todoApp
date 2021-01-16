@@ -107,7 +107,8 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
         return super.onOptionsItemSelected(item)
     }
 
-    private fun insertDataToDb() {
+    private fun
+            insertDataToDb() {
         val mTitle = title_et.text.toString()
         val mPriority = priorities_spinner.selectedItem.toString()
         val mDescription = descriptions_et.text.toString()
@@ -118,7 +119,8 @@ class AddFragment : Fragment(), DatePickerDialog.OnDateSetListener,
                 0,
                 mTitle,
                 mShareViewModel.parsePriority(mPriority),
-                mDescription
+                mDescription,
+                "$savedDay-$savedMonth-$savedYear T $$savedHour:$savedMinute"
             )
             mToDoViewModel.insertData(newData)
 
