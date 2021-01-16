@@ -88,8 +88,6 @@ class BindingAdapters {
         @JvmStatic
         fun increaseFontSize(view:TextView,increase0: Boolean){
             var multi : Int = 12
-
-
         }
     }
 }
