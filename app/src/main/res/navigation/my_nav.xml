@@ -58,7 +58,7 @@
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.skylabstechke.todo.fragments.details.DetailsFragment"
-        android:label="Item Details"
+        android:label="ToDo Details"
         tools:layout="@layout/fragment_details" >
 
         <argument
