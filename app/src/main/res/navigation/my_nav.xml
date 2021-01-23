@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/listFragment">
+    app:startDestination="@id/splashScreen">
 
     <fragment
         android:id="@+id/listFragment"
@@ -78,5 +78,14 @@
             app:popEnterAnim="@anim/from_top"
             app:popExitAnim="@anim/to_bottom" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreen"
+        android:name="com.skylabstechke.todo.fragments.SplashScreen"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreen_to_listFragment"
+            app:destination="@id/listFragment" />
     </fragment>
 </navigation>
