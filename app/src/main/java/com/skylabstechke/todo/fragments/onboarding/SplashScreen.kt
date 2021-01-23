@@ -1,4 +1,4 @@
-package com.skylabstechke.todo.fragments
+package com.skylabstechke.todo.fragments.onboarding
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

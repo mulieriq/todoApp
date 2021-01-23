@@ -81,7 +81,7 @@
     </fragment>
     <fragment
         android:id="@+id/splashScreen"
-        android:name="com.skylabstechke.todo.fragments.SplashScreen"
+        android:name="com.skylabstechke.todo.fragments.onboarding.SplashScreen"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
