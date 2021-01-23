@@ -12,6 +12,7 @@ import com.skylabstechke.todo.fragments.onboarding.screens.SplashScreen1
 import com.skylabstechke.todo.fragments.onboarding.screens.SplashScreen2
 import com.skylabstechke.todo.fragments.onboarding.screens.SplashScreen3
 import kotlinx.android.synthetic.main.fragment_view_pager.*
+import kotlinx.android.synthetic.main.fragment_view_pager.view.*
 
 
 class ViewPagerFragment : Fragment() {
@@ -29,7 +30,7 @@ class ViewPagerFragment : Fragment() {
         )
 
         val adapter  = ViewPagerAdapter(fragmentList,requireActivity().supportFragmentManager,lifecycle)
-         viewPager.adapter = adapter
+         view.viewPager.adapter = adapter
         return  view
     }
 
