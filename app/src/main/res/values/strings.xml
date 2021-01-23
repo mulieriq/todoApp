@@ -25,6 +25,8 @@
 
     <string name="next">Next</string>
     <string name="a_real_family_is_one_which_walks_in_when_the_rest_of_the_world_walks_out">A real family is one which walks in when the rest of the world walks out.</string>
+    <string name="screen3">Join the communion of breathren and keep the falm of Jesus Chist burning within our hearts.</string>
+    <string name="done">Done</string>
 
     <string-array name="priorities">
         <item>High Priority</item>
