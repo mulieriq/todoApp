@@ -21,6 +21,9 @@
     <string name="update">Update</string>
     <string name="set_deadline">Set Deadline</string>
     <string name="deadline">Deadline</string>
+    <string name="home_away_from_home">Home Away From Home</string>
+    <string name="home_away_from_home">Home Away From Home</string>
+    <string name="next">Next</string>
 
     <string-array name="priorities">
         <item>High Priority</item>
