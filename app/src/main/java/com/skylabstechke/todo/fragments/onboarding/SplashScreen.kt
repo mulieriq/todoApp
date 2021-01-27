@@ -1,17 +1,21 @@
 package com.skylabstechke.todo.fragments.onboarding
 
+import android.app.ActionBar
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.skylabstechke.todo.R
 
 
 class SplashScreen : Fragment() {
+
      override fun onCreateView(
+
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
