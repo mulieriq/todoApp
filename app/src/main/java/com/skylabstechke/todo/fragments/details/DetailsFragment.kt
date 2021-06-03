@@ -55,7 +55,6 @@ class DetailsFragment : Fragment() {
         } else if (item.itemId == R.id.update_delete) {
             confirmItemRemoval()
         }
-
         return super.onOptionsItemSelected(item)
     }
 

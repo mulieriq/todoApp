@@ -8,7 +8,7 @@ import com.skylabstechke.todo.data.model.ToDoData
 import com.skylabstechke.todo.databinding.RowLayoutBinding
 import com.skylabstechke.todo.utilis.ToDoDiffUtil
 
-class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
+class  ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
      var datalist = emptyList<ToDoData>()
 
